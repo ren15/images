@@ -10,3 +10,13 @@ RUN \
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y &&\
     rustc --version &&\
     rustup target add x86_64-unknown-linux-musl
+
+RUN echo -e '\
+[source]                                                                    \n\
+                                                                            \n\
+[source.mirror]                                                             \n\
+registry = "https://mirrors.sjtug.sjtu.edu.cn/git/crates.io-index/"         \n\
+                                                                            \n\
+[source.crates-io]                                                          \n\
+replace-with = "mirror"                                                       \
+' > /opt/rust/config.toml
