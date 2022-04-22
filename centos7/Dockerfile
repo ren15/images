@@ -14,9 +14,9 @@ RUN \
 RUN echo -e '\
 [source]                                                                    \n\
                                                                             \n\
-[source.mirror]                                                             \n\
+[source.mirror-sjtu]                                                        \n\
 registry = "https://mirrors.sjtug.sjtu.edu.cn/git/crates.io-index/"         \n\
                                                                             \n\
 [source.crates-io]                                                          \n\
-replace-with = "mirror"                                                       \
+replace-with = "mirror-sjtu"                                                  \
 ' > /opt/rust/config.toml

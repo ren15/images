@@ -38,4 +38,5 @@ jobs:
 
     - name: Test image
       run: |
-        docker run ${{ env.IMAGE_REPO }}/${{ env.IMAGE_NAME }}:${{ matrix.image_subdir }} bash -c "rustc --version"
+        docker run ${{ env.IMAGE_REPO }}/${{ env.IMAGE_NAME }}:${{ matrix.image_subdir }} \
+          bash -c "rustc --version && cd /root && cargo new test_1 && cd test_1 && echo 'rand = \"0.8.5\"' >> Cargo.toml && cargo run"
