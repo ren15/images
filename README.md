@@ -1,0 +1,1 @@
+# rust_centos7_image
