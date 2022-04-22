@@ -37,4 +37,5 @@ jobs:
           | awk '{print $1/1024/1024}' 
 
     - name: Test image
+      run: |
         docker run ${{ env.IMAGE_REPO }}/${{ env.IMAGE_NAME }}:${{ matrix.image_subdir }} rustc --version
