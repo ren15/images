@@ -52,8 +52,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Login skopeo
+    - name: Login skopeo and copy images
       run: |
         echo ${{ secrets.GH_PAT }} | sudo skopeo login ghcr.io -u iamwrm --password-stdin
         echo ${{ secrets.RH_PASSWORD }} | sudo skopeo login registry.redhat.io -u iamwrm --password-stdin
-        sudo skopeo copy docker://registry.redhat.io/rhscl/devtoolset-11-toolchain-rhel7:latest docker://ghcr.io/ren15/devtoolset-11-toolchain-rhel7:latest
+        sudo bash scripts/copy_images.sh
