@@ -15,7 +15,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        image_subdir: ["rust_centos7","archlinux"]
+        image_subdir: ["rust_centos7","archlinux","rust_slim"]
 
 
     steps:
