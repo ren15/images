@@ -1,2 +1,2 @@
 docker run $1 \
-    bash -c "gcc --version"
+    bash -c 'scl enable devtoolset-11 "gcc --version"'

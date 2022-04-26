@@ -40,7 +40,7 @@ jobs:
       run: |
         docker push ${{ env.image_full_name }}
         docker manifest inspect ${{ env.image_full_name }} \
-          | jq '[.layers[] | .size] | add' | awk '{print "Image size:",$1/1024/1024,"MB"}' 
+          | jq '[.layers[] | .size] | add' | awk '{print "image size:",$1/1024/1024,"MB"}' 
 
     - name: Test image
       run: |
