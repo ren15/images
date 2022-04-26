@@ -31,6 +31,7 @@ jobs:
         export version=$(jq -r .version rust_centos7/metadata.json)
         echo $version
         export image_full_name=${{ env.IMAGE_REPO }}/${{ env.IMAGE_NAME }}:${{ matrix.image_subdir }}_${version}
+        echo "::set-env name=image_full_name::$image_full_name"
         docker build -t ${image_full_name} ${{ matrix.image_subdir }}
 
     - name: Push docker image
