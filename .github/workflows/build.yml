@@ -56,4 +56,4 @@ jobs:
       run: |
         echo ${{ env.REGISTRY_TOKEN }} | sudo skopeo login ghcr.io -u iamwrm --password-stdin
         echo ${{ secrets.RH_PASSWORD }} | sudo skopeo login registry.redhat.io -u iamwrm --password-stdin
-        skopeo copy docker://registry.redhat.io/rhscl/devtoolset-11-toolchain-rhel7:latest docker://ghcr.io/ren15/devtoolset-11-toolchain-rhel7:latest
+        sudo skopeo copy docker://registry.redhat.io/rhscl/devtoolset-11-toolchain-rhel7:latest docker://ghcr.io/ren15/devtoolset-11-toolchain-rhel7:latest
