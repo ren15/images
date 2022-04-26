@@ -45,3 +45,15 @@ jobs:
     - name: Test image
       run: |
         bash docker_build/${{ matrix.image_subdir }}/test.sh ${{ env.image_full_name }}
+
+  copy_image:
+
+    runs-on: ubuntu-20.04
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Login skopeo
+      run: |
+        echo ${{ env.REGISTRY_TOKEN }} | skopeo login ghcr.io -u iamwrm --password-stdin
+        echo ${{ secrets.RH_PASSWORD }} | skopeo login registry.redhat.io -u iamwrm--password-stdin
+        skopeo copy docker://registry.redhat.io/rhscl/devtoolset-11-toolchain-rhel7:latest docker://ghcr.io/ren15/devtoolset-11-toolchain-rhel7:latest
