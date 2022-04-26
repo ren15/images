@@ -25,4 +25,5 @@ RUN \
     git clone https://aur.archlinux.org/yay-bin.git &&\
     cd yay-bin &&\
     yes | makepkg -si &&\
-    yes | sudo pacman -Scc
+    yes | sudo pacman -Scc &&\
+    rm -rf /var/cache/pacman/pkg/*
