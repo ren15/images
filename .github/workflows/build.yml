@@ -27,14 +27,14 @@ jobs:
 
     - name: configure name
       run: |
-        version=$(jq -r .version ${{ matrix.image_subdir }}/metadata.json)
+        version=$(jq -r .version docker_build/${{ matrix.image_subdir }}/metadata.json)
         image_full_name=${{ env.IMAGE_REPO }}/${{ matrix.image_subdir }}:${version}
         echo "image_full_name=$image_full_name" >> $GITHUB_ENV
         echo ${image_full_name}
 
     - name: build image
       run: |
-        docker build -t ${{ env.image_full_name }} ${{ matrix.image_subdir }}
+        docker build -t ${{ env.image_full_name }} docker_build/${{ matrix.image_subdir }}
 
     - name: Push docker image
       run: |
@@ -44,4 +44,4 @@ jobs:
 
     - name: Test image
       run: |
-        bash ${{ matrix.image_subdir }}/test.sh ${{ env.image_full_name }}
+        bash docker_build/${{ matrix.image_subdir }}/test.sh ${{ env.image_full_name }}
