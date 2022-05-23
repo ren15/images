@@ -1,5 +1,5 @@
 FROM archlinux:latest
-ARG USER_NAME=user
+ARG USER_NAME=arch
 ARG USER_ID=1000
 RUN \
     pacman -Syu --noconfirm &&\
