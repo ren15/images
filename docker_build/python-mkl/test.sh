@@ -1,1 +1,1 @@
-docker run test_container $1 apt --version
+docker run $1 apt --version
