@@ -2,8 +2,7 @@ FROM ubuntu:20.04
 ARG USER_NAME=ubuntu
 ARG USER_ID=1000
 RUN \
-    sed -i 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list \
-    && apt update \
+    apt update \
     && apt install -y openssh-server \
                       xauth sudo \
     && mkdir /var/run/sshd \
