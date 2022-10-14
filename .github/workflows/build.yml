@@ -20,9 +20,7 @@ jobs:
             "archlinux",
             "cpp_centos7",
             "clang14",
-            "python-mkl",
             "rust_centos7",
-            "rust_slim",
             "ubuntu_gui",
             "ubuntu_kasm",
           ]
