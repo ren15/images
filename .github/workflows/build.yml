@@ -24,6 +24,7 @@ jobs:
             "rust_centos7",
             "rust_slim",
             "ubuntu_gui",
+            "ubuntu_kasm",
           ]
 
     steps:
@@ -42,6 +43,7 @@ jobs:
 
       - name: build image
         run: |
+          [ -f docker_build/${{ matrix.image_subdir }}/pre.sh  ] && bash docker_build/${{ matrix.image_subdir }}/pre.sh
           docker build -t ${{ env.image_full_name }} docker_build/${{ matrix.image_subdir }}
 
       - name: Push docker image
