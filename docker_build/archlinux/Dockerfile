@@ -18,12 +18,12 @@ RUN \
 RUN \
     /usr/bin/sed -i 's|#Color|Color|g' /etc/pacman.conf \
     && /usr/bin/sed -i 's|NoProgressBar|#NoProgressBar|g' /etc/pacman.conf \
-    && echo 'echo "Server = https://mirror.sjtu.edu.cn/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist' > /etc/pacman.d/cn_mirror.sh \
+    && echo 'echo "Server = https://mirror.sjtu.edu.cn/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist' > /etc/pacman.d/cn_mirror.sh
 
 ## Setting user arch
 RUN \
     useradd -l -u ${USER_ID} -G wheel -md /home/${USER_NAME} -s /bin/bash -p ${USER_NAME} ${USER_NAME} \
-    && echo "%wheel ALL=(ALL:ALL) NOPASSWD: ALL" >> /etc/sudoers \
+    && echo "%wheel ALL=(ALL:ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 ## Setting sshd
 RUN \
