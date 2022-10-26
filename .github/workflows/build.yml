@@ -20,6 +20,7 @@ jobs:
             "archlinux",
             "cpp_centos7",
             "clang14",
+            "gitlab-runner",
             "rust_centos7",
             "ubuntu_gui",
             "ubuntu_kasm",
