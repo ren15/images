@@ -1,2 +1,2 @@
-docker run $1 \
-    docker-machine --version
+docker run --entrypoint docker-machine $1 \
+    --version
