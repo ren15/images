@@ -13,7 +13,7 @@ RUN \
 ENV PATH=/opt/rust/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 ENV RUSTUP_HOME=/opt/rust CARGO_HOME=/opt/rust 
 RUN \
-    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain 1.64.0 -y  \
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain 1.65.0 -y  \
     && rustc --version
 
 COPY Dockerfile /Dockerfile
